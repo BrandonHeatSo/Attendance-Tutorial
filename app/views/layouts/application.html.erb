@@ -7,23 +7,12 @@
                                'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <!-- HTML shimがこの1行で収まる -->
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "Attendance App", '#', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Top",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <!-- headerの内容がこの1行で収まる -->
+    <%= render 'layouts/header' %>
     <div class="container">
       <%= yield %>
     </div>
