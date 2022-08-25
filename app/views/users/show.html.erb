@@ -1,2 +1,18 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %>, <%= @user.email %></h1>
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td>時間管理表</td>
+      <td>指定勤務時間</td>
+      <td>基本時間</td>
+      <td>月初日</td>
+    </tr>
+
+    <tr>
+      <td>所属</td>
+      <td>名前：<%= @user.name %></td>
+      <td>出勤日数</td>
+      <td>月末日</td>
+    </tr>
+  </table>
+</div>
