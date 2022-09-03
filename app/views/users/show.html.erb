@@ -3,14 +3,14 @@
   <table class="table table-bordered table-condensed user-table">
     <tr>
       <td>時間管理表</td>
-      <td>指定勤務時間<%= @user.work_time %></td>
-      <td>基本時間<%= @user.basic_time %></td>
+      <td>指定勤務時間：<%= format_basic_info(@user.work_time) %></td>
+      <td>基本時間：<%= format_basic_info(@user.basic_time) %></td>
       <td>月初日</td>
     </tr>
 
     <tr>
       <td>所属：<%= @user.department.present? ? @user.department : "未所属" %></td>
-      <td>名前：<%= @user.name %></td>
+      <td> 名前：<%= @user.name %></td>
       <td>出勤日数</td>
       <td>月末日</td>
     </tr>
