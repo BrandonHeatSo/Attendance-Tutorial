@@ -5,20 +5,19 @@
       <td>時間管理表</td>
       <td>指定勤務時間：<%= format_basic_info(@user.work_time) %></td>
       <td>基本時間：<%= format_basic_info(@user.basic_time) %></td>
-      <td>月初日</td>
+      <td>月初日：<%= l(@first_day, format: :short) %></td>
     </tr>
 
     <tr>
       <td>所属：<%= @user.department.present? ? @user.department : "未所属" %></td>
       <td>名前：<%= @user.name %></td>
       <td>出勤日数</td>
-      <td>月末日</td>
+      <td>月末日：<%= l(@last_day, format: :short) %></td>
     </tr>
   </table>
 </div>
-
 <div>
-  <table class="table table-bordered table-condensed table-hover" id="table-attendances">
+  <table class="table table-bordered table-condensed table-hover"   id="table-attendances">
     <thead>
       <tr>
         <th>日付</th>
@@ -28,14 +27,13 @@
         <th>退勤時間</th>
         <th>在社時間</th>
         <th>備考</th>
-      </tr>
+       </tr>
     </thead>
-
     <tbody>
-      <% (@first_day..@last_day).each do |day| %>
+      <% @attendances.each do |day| %>
         <tr>
-          <td><%= l(day, format: :short) %></td>
-          <td><%= $days_of_the_week[day.wday] %></td>
+          <td><%= l(day.worked_on, format: :short) %></td>
+          <td><%= $days_of_the_week[day.worked_on.wday] %></td>
           <td></td>
           <td></td>
           <td></td>
@@ -45,4 +43,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
+ </div>
