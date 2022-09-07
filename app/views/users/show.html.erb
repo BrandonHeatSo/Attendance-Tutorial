@@ -32,7 +32,6 @@
         <th>備考</th>
       </tr>
     </thead>
-
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
@@ -44,7 +43,7 @@
             <% end %>
           </td>
           <td><%= l(day.started_at, format: :time) if day.started_at.present? %></td>
-          <td></td>
+          <td><%= l(day.finished_at, format: :time) if day.finished_at.present? %></td>
           <td></td>
           <td></td>
         </tr>
