@@ -33,7 +33,7 @@
         <th>備考</th>
       </tr>
     </thead>
-
+    
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
@@ -48,7 +48,8 @@
           <td><%= l(day.finished_at, format: :time) if day.finished_at.present? %></td>
           <td>
             <% if day.started_at.present? && day.finished_at.present? %>
-              <%= working_times(day.started_at, day.finished_at) %>
+              <%= str_times = working_times(day.started_at, day.finished_at) %>
+              <% @total_working_times = @total_working_times.to_f + str_times.to_f %>
             <% end %>
           </td>
           <td></td>
@@ -67,7 +68,7 @@
       <tr>
         <td colspan="2"><%= @attendances.count %></td>
         <td colspan="2"><%= format_basic_info(@user.work_time).to_f * @worked_sum %></td>
-        <td colspan="2"></td>
+        <td colspan="2"><%= format("%.2f", @total_working_times.to_f) %></td>
       </tr>
     </tfoot>
   </table>
