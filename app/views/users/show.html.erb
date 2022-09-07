@@ -7,6 +7,7 @@
       <td>基本時間：<%= format_basic_info(@user.basic_time) %></td>
       <td>月初日：<%= l(@first_day, format: :short) %></td>
     </tr>
+
     <tr>
       <td>所属：<%= @user.department.present? ? @user.department : "未所属" %></td>
       <td>名前：<%= @user.name %></td>
@@ -32,6 +33,7 @@
         <th>備考</th>
       </tr>
     </thead>
+
     <tbody>
       <% @attendances.each do |day| %>
         <tr>
@@ -53,5 +55,20 @@
         </tr>
       <% end %>
     </tbody>
+
+    <tfoot>
+      <!--rowspan:縦結合、colspan：横結合-->
+      <tr>
+        <td colspan="2">累計日数</td>
+        <td colspan="2">総合勤務時間</td>
+        <td colspan="2">累計在社時間</td>
+        <td rowspan="2"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= @attendances.count %></td>
+        <td colspan="2"><%= format_basic_info(@user.work_time).to_f * @worked_sum %></td>
+        <td colspan="2"></td>
+      </tr>
+    </tfoot>
   </table>
 </div>
