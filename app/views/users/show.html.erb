@@ -41,6 +41,8 @@
           <td>
             <% if (Date.current == day.worked_on) && day.started_at.nil? %>
               <%= link_to "出勤登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% elsif (Date.current == day.worked_on) && day.started_at.present? day.finished_at.nil? %>
+              <%= link_to "退勤登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
             <% end %>
           </td>
           <td><%= l(day.started_at, format: :time) if day.started_at.present? %></td>
