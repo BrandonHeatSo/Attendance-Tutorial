@@ -29,5 +29,6 @@ class AttendancesController < ApplicationController
   end
 
   def update_one_month
+    debugger
   end
 end
