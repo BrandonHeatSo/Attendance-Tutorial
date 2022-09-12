@@ -61,7 +61,7 @@ GEM
     crass (1.0.6)
     erubi (1.11.0)
     execjs (2.8.1)
-    faker (2.22.0)
+    faker (2.23.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -201,5 +201,8 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   will_paginate
 
+RUBY VERSION
+   ruby 2.7.6p219
+
 BUNDLED WITH
-   1.17.3
+   2.1.4
